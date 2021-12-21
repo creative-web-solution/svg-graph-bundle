@@ -1,0 +1,35 @@
+{
+    "name": "creative-web-solution/svg-graph-bundle",
+    "description": "Generate the beautiful graph.",
+    "version": "1.0.0",
+    "keywords": [
+        "creative-web-solution",
+        "cws",
+        "bundle",
+        "symfony4",
+        "front",
+        "svg",
+        "graph",
+        "svg-graph"
+    ],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CWS",
+            "email": "cws-info@cws-studio.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.1",
+        "symfony/dependency-injection": "^4.4 || ^5.4",
+        "symfony/framework-bundle": "^4.4 || ^5.4",
+        "meyfa/php-svg": "^0.9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cws\\Bundle\\SVGGraphBundle\\": "src/"
+        }
+    }
+}
