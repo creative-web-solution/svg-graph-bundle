@@ -2,16 +2,12 @@
 
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Lines;
 
-use Cws\Bundle\SVGGraphBundle\ISVGGraph;
-use Cws\Bundle\SVGGraphBundle\Tools\Line;
-use Cws\Bundle\SVGGraphBundle\Tools\Point;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\ISVGGraph;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Line;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Point;
 use SVG\Nodes\Shapes\SVGPath;
 use SVG\Nodes\Structures\SVGDocumentFragment;
 
-/**
- * Class Lines
- * @package Cws\Bundle\SVGGraphBundle\Lines
- */
 class Lines implements ISVGGraph
 {
     private $data;

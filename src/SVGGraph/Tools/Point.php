@@ -1,10 +1,7 @@
 <?php
+
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Tools;
 
-/**
- * Class Point
- * @package Cws\Bundle\SVGGraphBundle\Tools
- */
 class Point
 {
     public $x;
@@ -22,10 +19,7 @@ class Point
         $this->y = $y;
     }
 
-    /**
-     * @return array
-     */
-    public function toArray()
+    public function toArray(): array
     {
         return [$this->x, $this->y];
     }
@@ -37,7 +31,7 @@ class Point
      *
      * @return Point
      */
-    public static function angleToPoint(Point $center, $radius, $angle)
+    public static function angleToPoint(Point $center, $radius, $angle): Point
     {
         return new Point(
             round($center->x + $radius * cos(deg2rad($angle)), 3),

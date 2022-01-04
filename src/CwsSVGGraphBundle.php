@@ -7,7 +7,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 /**
  * CwsSVGGraphBundleBundle
  *
- * @package Cws\SVGGraphBundle
+ * @package Cws\Bundle\SVGGraphBundle
  */
 class CwsSVGGraphBundle extends Bundle
 {

@@ -2,10 +2,6 @@
 
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Tools;
 
-/**
- * Class Text
- * @package Cws\Bundle\SVGGraphBundle\Tools
- */
 class Text
 {
     public $text;
@@ -35,22 +31,25 @@ class Text
     /**
      * @return string
      */
-    public function create()
+    public function create(): string
     {
         $result = [];
 
         $result[] = '<div ';
         $result[] = "class=\"$this->cssClass\" ";
         $result[] = 'style="';
-        $result[] = 'top:'.$this->coords->y.'px;';
+        $result[] = 'top:' . $this->coords->y . 'px;';
+
         if ($this->isRightPositioned) {
-            $result[] = 'right:'.$this->coords->x.'px;';
+            $result[] = 'right:' . $this->coords->x . 'px;';
         } else {
-            $result[] = 'left:'.$this->coords->x.'px;';
+            $result[] = 'left:' . $this->coords->x . 'px;';
         }
-        if ($this->color != '') {
-            $result[] = 'color:'.$this->color.';';
+
+        if ('' !== $this->color) {
+            $result[] = 'color:' . $this->color . ';';
         }
+
         $result[] = '"';
         $result[] = '><span>';
         $result[] = $this->text;

@@ -2,13 +2,9 @@
 
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Donut;
 
-use Cws\Bundle\SVGGraphBundle\IGraphLegend;
-use Cws\Bundle\SVGGraphBundle\Tools\Text;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\IGraphLegend;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Text;
 
-/**
- * Class Legend
- * @package Cws\Bundle\SVGGraphBundle\Donut
- */
 class Legend implements IGraphLegend
 {
     private $data;
@@ -36,7 +32,7 @@ class Legend implements IGraphLegend
      *
      * @return string
      */
-    private function createAllLabels($arcList)
+    private function createAllLabels($arcList): string
     {
         $html = [];
 
@@ -52,7 +48,7 @@ class Legend implements IGraphLegend
      *
      * @return string
      */
-    private function createLabel($arc)
+    private function createLabel($arc): string
     {
         $drawindData = $arc->getDrawingData();
 
@@ -69,10 +65,7 @@ class Legend implements IGraphLegend
         return $text->create();
     }
 
-    /**
-     * @return string
-     */
-    public function create()
+    public function create(): string
     {
         $arcList = $this->drawingData->arcList;
         $html = $this->createAllLabels($arcList);

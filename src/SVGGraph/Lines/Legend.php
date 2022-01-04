@@ -2,14 +2,10 @@
 
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Lines;
 
-use Cws\Bundle\SVGGraphBundle\IGraphLegend;
-use Cws\Bundle\SVGGraphBundle\Tools\Point;
-use Cws\Bundle\SVGGraphBundle\Tools\Text;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\IGraphLegend;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Point;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Text;
 
-/**
- * Class Legend
- * @package Cws\Bundle\SVGGraphBundle\Lines
- */
 class Legend implements IGraphLegend
 {
     private $data;
@@ -34,10 +30,7 @@ class Legend implements IGraphLegend
         $this->labelList = [];
     }
 
-    /**
-     * Create all the vertical lines of the grid
-     */
-    private function createHorizontalLabels()
+    private function createHorizontalLabels(): string
     {
         $html = [];
         $html[] = sprintf('<div class="%s">', $this->graphStyle->axes->abs->wrapperCssClass);
@@ -60,10 +53,7 @@ class Legend implements IGraphLegend
         return implode('', $html);
     }
 
-    /**
-     * Create all the vertical lines of the grid
-     */
-    private function createVerticalLabels()
+    private function createVerticalLabels(): string
     {
         $html = [];
         $min = $this->graphStyle->axes->ord->min;
@@ -97,18 +87,15 @@ class Legend implements IGraphLegend
      * @param $label
      * @param $cssClass
      *
-     * @return Text
+     * @return string
      */
-    private function createLabels($label, Point $point1, $cssClass)
+    private function createLabels($label, Point $point1, $cssClass): string
     {
         $text = new Text($label, $point1, $cssClass);
 
         return $text->create();
     }
 
-    /**
-     * @return string
-     */
     public function create()
     {
         $html = '';

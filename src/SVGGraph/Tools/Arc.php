@@ -2,10 +2,6 @@
 
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Tools;
 
-/**
- * Class Arc
- * @package Cws\Bundle\SVGGraphBundle\Tools
- */
 class Arc
 {
     /**
@@ -25,7 +21,7 @@ class Arc
         $axeRotation = 0,
         $largeArcFlag = 0,
         $sweepFlag = 0
-    ) {
+    ): string {
         return sprintf(
             'M %s,%s A %s %s %s %s %s %s,%s',
             $startPoint->x,
@@ -55,7 +51,7 @@ class Arc
         $axeRotation = 0,
         $largeArcFlag = 0,
         $sweepFlag = 0
-    ) {
+    ): string {
         return sprintf(
             'A %s %s %s %s %s %s,%s',
             $radius,
