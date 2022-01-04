@@ -150,7 +150,7 @@ class Donut implements ISVGGraph
         }
     }
 
-    public function create(SVGDocumentFragment $svgDocument): string
+    public function create(SVGDocumentFragment $svgDocument): void
     {
         foreach ($this->drawingData->arcList as $arc) {
             $svgDocument->addChild($arc->create());
