@@ -1,5 +1,5 @@
 <?php
-namespace Cws\Bundle\SVGGraphBundle\Tools;
+namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Tools;
 
 /**
  * Class Point

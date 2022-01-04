@@ -1,6 +1,6 @@
 <?php
 
-namespace Cws\Bundle\SVGGraphBundle\Lines;
+namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Lines;
 
 use Cws\Bundle\SVGGraphBundle\IGraphLegend;
 use Cws\Bundle\SVGGraphBundle\Tools\Point;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cws\Bundle\SVGGraphBundle\Donut;
+namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Donut;
 
 use Cws\Bundle\SVGGraphBundle\Tools\Arc;
 use Cws\Bundle\SVGGraphBundle\Tools\Line;
