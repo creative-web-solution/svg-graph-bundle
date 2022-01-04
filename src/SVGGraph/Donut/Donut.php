@@ -2,18 +2,14 @@
 
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Donut;
 
-use Cws\Bundle\SVGGraphBundle\ISVGGraph;
-use Cws\Bundle\SVGGraphBundle\Tools\Point;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\ISVGGraph;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Point;
 use SVG\Nodes\Structures\SVGDocumentFragment;
 
-/**
- * Class Donut
- * @package Cws\Bundle\SVGGraphBundle\Donut
- */
 class Donut implements ISVGGraph
 {
-    const TOTAL_ANGLE = 360;
-    const MIN_ARC_ANGLE = 10;
+    public const TOTAL_ANGLE = 360;
+    public const MIN_ARC_ANGLE = 10;
 
     private $data;
     private $graphStyle;
@@ -34,15 +30,7 @@ class Donut implements ISVGGraph
         $this->drawingData = $this->computeData($this->data, $this->graphStyle);
     }
 
-    /**
-     * Sort the arcs dépending on their y position
-     *
-     * @param $a
-     * @param $b
-     *
-     * @return int
-     */
-    private function sortArc($a, $b)
+    private function sortArc($a, $b): int
     {
         if ($a->y == $b->y) {
             return 0;
@@ -145,7 +133,7 @@ class Donut implements ISVGGraph
      * @param $x1
      * @param $x2
      */
-    private function createLegendLinePoints(array &$array, $height, $x1, $x2)
+    private function createLegendLinePoints(array &$array, $height, $x1, $x2): void
     {
         usort($array, [$this, 'sortArc']);
 
@@ -162,14 +150,7 @@ class Donut implements ISVGGraph
         }
     }
 
-    /**
-     * Return the SVG string of the donut
-     *
-     * @param SVGDocumentFragment $svgDocument
-     *
-     * @return string
-     */
-    public function create(SVGDocumentFragment $svgDocument)
+    public function create(SVGDocumentFragment $svgDocument): string
     {
         foreach ($this->drawingData->arcList as $arc) {
             $svgDocument->addChild($arc->create());
@@ -182,7 +163,7 @@ class Donut implements ISVGGraph
         }
     }
 
-    public function getLegend()
+    public function getLegend(): string
     {
         if ($this->hasLegend) {
             $legend = new Legend($this->data, $this, $this->graphStyle);

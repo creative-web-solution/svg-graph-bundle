@@ -2,14 +2,10 @@
 
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Lines;
 
-use Cws\Bundle\SVGGraphBundle\Tools\Point;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Point;
 use SVG\Nodes\Shapes\SVGLine;
 use SVG\Nodes\Structures\SVGDocumentFragment;
 
-/**
- * Class Axes
- * @package Cws\Bundle\SVGGraphBundle\Lines
- */
 class Axes
 {
     private $data;
@@ -35,8 +31,6 @@ class Axes
     }
 
     /**
-     * Create a line between 2 points
-     *
      * @param Point $point1
      * @param Point $point2
      * @param $color
@@ -44,7 +38,7 @@ class Axes
      *
      * @return SVGLine
      */
-    private function getLine(Point $point1, Point $point2, $color, $thickness)
+    private function getLine(Point $point1, Point $point2, $color, $thickness): SVGLine
     {
         $line = new SVGLine($point1->x, $point1->y, $point2->x, $point2->y);
 
@@ -57,12 +51,7 @@ class Axes
         return $line;
     }
 
-    /**
-     * Return the abscissal line
-     *
-     * @return SVGLine
-     */
-    private function createAbs()
+    private function createAbs(): SVGLine
     {
         $point1 = new Point(
             $this->graphStyle->canvas->left,
@@ -81,12 +70,7 @@ class Axes
         );
     }
 
-    /**
-     * Return the ordinate line
-     *
-     * @return SVGLine
-     */
-    private function createOrd()
+    private function createOrd(): SVGLine
     {
         $point1 = new Point(
             $this->graphStyle->canvas->left,
@@ -106,12 +90,7 @@ class Axes
         );
     }
 
-    /**
-     * Create all the horizontal lines of the grid
-     *
-     * @param $svgDocument
-     */
-    private function createHorizontalGridLines(SVGDocumentFragment $svgDocument)
+    private function createHorizontalGridLines(SVGDocumentFragment $svgDocument): void
     {
         $min = $this->graphStyle->axes->ord->min;
         $max = $this->graphStyle->axes->ord->max;
@@ -141,11 +120,7 @@ class Axes
         }
     }
 
-    /**
-     * Create all the vertical lines of the grid
-     * @param $svgDocument
-     */
-    private function createVerticalGridLines(SVGDocumentFragment $svgDocument)
+    private function createVerticalGridLines(SVGDocumentFragment $svgDocument): void
     {
         foreach ($this->drawingData->globalData->ordMinMax as $index => $ordData) {
             $point1 = new Point(
@@ -169,13 +144,7 @@ class Axes
         }
     }
 
-
-    /**
-     * @param SVGDocumentFragment $svgDocument
-     *
-     * @return string
-     */
-    public function create(SVGDocumentFragment $svgDocument)
+    public function create(SVGDocumentFragment $svgDocument): string
     {
         if ($this->graphStyle->grid->horizontal->isDisplayed) {
             $this->createHorizontalGridLines($svgDocument);

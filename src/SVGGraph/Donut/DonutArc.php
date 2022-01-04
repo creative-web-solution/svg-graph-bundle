@@ -2,16 +2,12 @@
 
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph\Donut;
 
-use Cws\Bundle\SVGGraphBundle\Tools\Arc;
-use Cws\Bundle\SVGGraphBundle\Tools\Line;
-use Cws\Bundle\SVGGraphBundle\Tools\Point;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Arc;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Line;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Tools\Point;
 use SVG\Nodes\Shapes\SVGPath;
 use SVG\Nodes\Shapes\SVGPolyline;
 
-/**
- * Class DonutArc
- * @package Cws\Bundle\SVGGraphBundle\Donut
- */
 class DonutArc
 {
     private $data;
@@ -83,12 +79,7 @@ class DonutArc
         $this->drawingData->legendLinePoints->point3 = $point3;
     }
 
-    /**
-     * Return the comple SVG string to draw a donut
-     *
-     * @return string
-     */
-    private function makeSVGDonutString()
+    private function makeSVGDonutString(): string
     {
         $internalArc = Arc::arcFromTo(
             $this->drawingData->internalStartPoint,
@@ -114,12 +105,7 @@ class DonutArc
         return implode(' ', array($internalArc, $line1, $externalArc, $line2));
     }
 
-    /**
-     * Create and return the SVGPath of one arc
-     *
-     * @return SVGPath
-     */
-    public function create()
+    public function create(): SVGPath
     {
         $graph = new SVGPath($this->makeSVGDonutString($this->graphStyle));
         $graph->setStyle('fill', $this->data->data->color);
@@ -127,10 +113,7 @@ class DonutArc
         return $graph;
     }
 
-    /**
-     * @return SVGPolyline
-     */
-    public function getLegendLine()
+    public function getLegendLine(): SVGPolyline
     {
         $line = new SVGPolyline([
             $this->drawingData->legendLinePoints->point1->toArray(),

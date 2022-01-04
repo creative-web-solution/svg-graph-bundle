@@ -2,14 +2,10 @@
 
 namespace Cws\Bundle\SVGGraphBundle\SVGGraph;
 
-use Cws\Bundle\SVGGraphBundle\Donut\Donut;
-use Cws\Bundle\SVGGraphBundle\Lines\Lines;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Donut\Donut;
+use Cws\Bundle\SVGGraphBundle\SVGGraph\Lines\Lines;
 use SVG\SVG;
 
-/**
- * Class SVGGraph
- * @package Cws\Bundle\SVGGraphBundle
- */
 class SVGGraph
 {
     /**
