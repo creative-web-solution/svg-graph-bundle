@@ -1,6 +1,6 @@
 <?php
 
-namespace Cws\Bundle\SVGGraphBundle;
+namespace Cws\Bundle\SVGGraphBundle\SVGGraph;
 
 /**
  * Interface IGraphLegend
